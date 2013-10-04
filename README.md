@@ -1,4 +1,6 @@
-Hack4us
+=======
+hack4us
+=======
 ============
 
 A lighweight application built to get details from hackersoc hackdays
@@ -9,7 +11,12 @@ License
 
 shaun.mit-license.org
 
+just a hack for Notts uni hackathon to see if people want to claim hacks and tell the Uni about them
 =======
 hack4us api 
 =============
+coming soon
+
+
+
 
