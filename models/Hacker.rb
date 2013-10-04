@@ -2,7 +2,7 @@ require 'mongoid'
 require 'json'
 
 class Hacker
-  include Mongoid::document
+  include Mongoid::Document
 
     field :id, type: Integer
 	field :name ,type: String

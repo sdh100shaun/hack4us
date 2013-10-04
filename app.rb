@@ -1,5 +1,6 @@
 
-
+require_relative 'models/Hacker'
+require_relative 'models/GitHubUser'
 
 require "sinatra/reloader" if development?
 
@@ -19,7 +20,11 @@ class App < Sinatra::Base
     file_path = File.expand_path("config/"+settings.environment.to_s+".yml", File.dirname(__FILE__))
     config = YAML.load_file(file_path)
     set :env , config[settings.app]
-    
+
+    set :client_id, config['client_id']
+    set :client_secret, config['client_secret']
+
+    Mongoid.load!(File.expand_path("config/mongo.yml", File.dirname(__FILE__)), :production)
   end
  
     get '/' do
@@ -29,8 +34,9 @@ class App < Sinatra::Base
 
     end
 
-    get '/users.json' do
+    get '/hackers.json' do
     	content_type :json
+
     	users = User.all
     	users.to_json
 	end
@@ -38,30 +44,25 @@ class App < Sinatra::Base
     get  '/location/:location' do 
       
 
-      erb :index, :locals => { :location => params[:location] }
+      
 
     end
 
-    get '/place/:lat/:lon' do 
+    get '/hacker/:gitHubUser' do 
 
-        place = Place.new
-        
-        lat = params[:lat]
-        lng = params[:lon]
+        githubUser = params[:gitHubUser]
 
-        place.get_place_info(lat,lng)
+        g = GitHubUser.new(settings.env['client_id'],settings.env['client_secret'])
+        user = g.get_user(githubUser)
+
+        erb :index, :locals => { :gitHubUser => user, :loginUrl=>
+        g.login}
 
     end
 
-    get '/weather/:lat/:lon' do 
+    get '/callback' do
 
-        lat = params[:lat]
-        lng = params[:lon]
-        weather = Weather.new(lat,lng)
-        weather.get_weather
-        code_info = Weather.where(code:weather.code)[0]
-
-        {"temp"=>weather.temp,"text"=>weather.text,"svg"=>code_info['svg'].to_s}.to_json
+        puts "callback"
     end
 
 end
