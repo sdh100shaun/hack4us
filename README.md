@@ -22,7 +22,8 @@ github auth so they can share repos with the university IT dept and alert us of 
 
 The app was not finished ... turns out 4hrs whilst listening to talks for a single guy rusty in ruby is not enough who would have thought that ... 
 
-Please fork away and make it work :-)
+Unfortunately not everyone in the uni keeps track of whats on hackerlegue or gets to hackdays so I thought this might be a way 
+of storing info so it can be shared with the university  maybe on the IS newsletter or something :-)
 
 
 
