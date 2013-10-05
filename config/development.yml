@@ -1,4 +1,4 @@
 App:
  showexceptions: false
- client_id: c5909437444d1dc08af5
- client_secret: 4b74daa91836bde4953eb0d06584d58f08fdc2f3
+ client_id: <clientid>
+ client_secret: <clientsecret>
