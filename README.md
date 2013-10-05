@@ -1,9 +1,12 @@
 =======
 hack4us
 =======
+
+hack4us.herokuapp.com
+
 ============
 
-A lighweight application built to get details from hackersoc hackdays
+A lighweight application built to get details from hackersoc hacks
 Created by Shaun Hare 
 
 License
@@ -19,7 +22,7 @@ github auth so they can share repos with the university IT dept and alert us of 
 
 The app was not finished ... 
 
-
+Please fork away and make it work :-)
 
 
 
